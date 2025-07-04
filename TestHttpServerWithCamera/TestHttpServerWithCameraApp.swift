@@ -23,9 +23,13 @@ struct TestHttpServerWithCameraApp: App {
         }
     }()
 
+    // Create a shared DataModel instance
+    @StateObject private var sharedDataModel = DataModel()
+
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(sharedDataModel)
         }
         .modelContainer(sharedModelContainer)
     }

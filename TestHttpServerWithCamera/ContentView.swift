@@ -10,47 +10,29 @@ import SwiftData
 
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
+    @EnvironmentObject private var dataModel: DataModel
     @Query private var items: [Item]
 
     var body: some View {
-        NavigationSplitView {
+        NavigationView {
             List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
-                    } label: {
-                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
+                NavigationLink(destination: CameraView(model: dataModel)) {
+                    HStack {
+                        Image(systemName: "camera")
+                            .foregroundColor(.blue)
+                        Text("Camera")
                     }
                 }
-                .onDelete(perform: deleteItems)
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
+
+                NavigationLink(destination: ServerControlView(dataModel: dataModel)) {
+                    HStack {
+                        Image(systemName: "server.rack")
+                            .foregroundColor(.green)
+                        Text("HTTP Server")
                     }
                 }
             }
-        } detail: {
-            Text("Select an item")
-        }
-    }
-
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(timestamp: Date())
-            modelContext.insert(newItem)
-        }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                modelContext.delete(items[index])
-            }
+            .navigationTitle("Test App")
         }
     }
 }
@@ -58,4 +40,5 @@ struct ContentView: View {
 #Preview {
     ContentView()
         .modelContainer(for: Item.self, inMemory: true)
+        .environmentObject(DataModel())
 }

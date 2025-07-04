@@ -400,6 +400,9 @@
 				DEVELOPMENT_TEAM = Y7X2VZ8933;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "LET ME COOK";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "LET ME LISTEN ON A PORT";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "LET ME GET YOUR PHOTOS";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -428,6 +431,9 @@
 				DEVELOPMENT_TEAM = Y7X2VZ8933;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "LET ME COOK";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "LET ME LISTEN ON A PORT";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "LET ME GET YOUR PHOTOS";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
